@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Application | Cameroon National ID Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 1.5rem;
+      bottom: -1.5rem;
+      width: 2px;
+      background-color: #e5e7eb;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg" alt="Cameroon Flag" class="h-10 mr-3">
+        <h1 class="text-xl font-bold text-gray-800">Cameroon National ID Card Portal</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <button class="bg-blue-600 text-white px-3 py-1 rounded-md flex items-center">
+            <i class="fas fa-globe mr-2"></i>
+            English
+          </button>
+        </div>
+        <a href="login.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tracking Section -->
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-6 border-b">
+          <h2 class="text-2xl font-bold text-gray-800">Track Your Application</h2>
+          <p class="text-gray-600 mt-1">Enter your application reference number to check the status</p>
+        </div>
+
+        <div class="p-6">
+          <form id="tracking-form" class="space-y-4">
+            <div>
+              <label for="reference-number" class="block text-sm font-medium text-gray-700 mb-1">Reference Number*</label>
+              <input type="text" id="reference-number" name="reference_number" placeholder="e.g. ID-123-456789" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+              <label for="national-id" class="block text-sm font-medium text-gray-700 mb-1">National ID Number (if applicable)</label>
+              <input type="text" id="national-id" name="national_id"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">
+              Check Status <i class="fas fa-search ml-2"></i>
+            </button>
+          </form>
+
+          <!-- Status Display (hidden by default) -->
+          <div id="status-display" class="mt-8 hidden">
+            <div class="bg-gray-50 p-4 rounded-lg mb-6">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-800">Application Status</h3>
+                  <p class="text-sm text-gray-600">Reference: <span id="display-reference" class="font-medium">ID-123-456789</span></p>
+                </div>
+                <span id="status-badge" class="status-badge bg-blue-100 text-blue-800">
+                  <i class="fas fa-circle-notch fa-spin mr-2"></i>
+                  <span>In Review</span>
+                </span>
+              </div>
+            </div>
+
+            <h4 class="text-lg font-semibold text-gray-800 mb-4">Application Timeline</h4>
+            <div class="space-y-6 relative">
+              <!-- Timeline items will be added dynamically by JavaScript -->
+              <div id="timeline-items">
+                <!-- Sample timeline item (will be replaced with actual data) -->
+                <div class="timeline-item relative pl-8">
+                  <div class="absolute left-0 top-0 w-4 h-4 rounded-full bg-blue-500 z-10"></div>
+                  <div class="text-sm font-medium text-gray-800">Application Submitted</div>
+                  <div class="text-xs text-gray-500 mt-1">2023-11-15 14:30</div>
+                  <p class="text-sm text-gray-600 mt-1">Your application has been received and is being processed.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t">
+              <h4 class="text-lg font-semibold text-gray-800 mb-3">Estimated Processing Time</h4>
+              <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <i class="fas fa-info-circle text-yellow-400 mt-1"></i>
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-sm text-yellow-700">
+                      The standard processing time for ID card applications is <span class="font-semibold">4-6 weeks</span> from submission date.
+                      You will receive a notification when your ID card is ready for collection.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <h4 class="text-lg font-semibold text-gray-800 mb-3">Need Help?</h4>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-sm text-gray-600 mb-2">
+                  If you have any questions about your application status, please contact our support team:
+                </p>
+                <ul class="space-y-1 text-sm">
+                  <li class="flex items-center">
+                    <i class="fas fa-envelope mr-2 text-gray-500"></i>
+                    <span>id.cameroon.tracking@gmail.com</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-phone mr-2 text-gray-500"></i>
+                    <span>(+237) 652776172</span>
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-user mr-2 text-gray-500"></i>
+                    <span>Esther ID-CAM VERIFICATION SUPPORT</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2023 Cameroon National ID Card Portal. All rights reserved.</p>
+      <div class="mt-4">
+        <p class="text-gray-400">Contact: id.cameroon.tracking@gmail.com | (+237) 652776172</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const trackingForm = document.getElementById('tracking-form');
+      const statusDisplay = document.getElementById('status-display');
+      const timelineItems = document.getElementById('timeline-items');
+      const statusBadge = document.getElementById('status-badge');
+      const displayReference = document.getElementById('display-reference');
+
+      // Status badge colors based on status
+      const statusColors = {
+        'submitted': { bg: 'bg-blue-100', text: 'text-blue-800', icon: 'fa-inbox' },
+        'in_review': { bg: 'bg-yellow-100', text: 'text-yellow-800', icon: 'fa-circle-notch fa-spin' },
+        'approved': { bg: 'bg-green-100', text: 'text-green-800', icon: 'fa-check-circle' },
+        'printed': { bg: 'bg-purple-100', text: 'text-purple-800', icon: 'fa-print' },
+        'dispatched': { bg: 'bg-indigo-100', text: 'text-indigo-800', icon: 'fa-truck' },
+        'delivered': { bg: 'bg-teal-100', text: 'text-teal-800', icon: 'fa-box-open' },
+        'rejected': { bg: 'bg-red-100', text: 'text-red-800', icon: 'fa-times-circle' }
+      };
+
+      // Sample timeline data (in a real app, this would come from the API)
+      const sampleTimeline = {
+        'submitted': {
+          date: '2023-11-15 14:30',
+          description: 'Your application has been received and is being processed.'
+        },
+        'in_review': {
+          date: '2023-11-18 09:15',
+          description: 'Your documents are being verified by our team.'
+        },
+        'approved': {
+          date: '2023-11-22 11:45',
+          description: 'Your application has been approved. Your ID card is being prepared.'
+        }
+      };
+
+      // Form submission
+      trackingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const referenceNumber = document.getElementById('reference-number').value;
+        
+        if (!referenceNumber) {
+          alert('Please enter your reference number');
+          return;
+        }
+
+        // In a real implementation, this would call the API to get status
+        // For demo purposes, we'll use sample data
+        displayReference.textContent = referenceNumber;
+        
+        // Simulate API call delay
+        setTimeout(() => {
+          // Update status badge
+          updateStatusBadge('in_review');
+          
+          // Clear existing timeline items
+          timelineItems.innerHTML = '';
+          
+          // Add timeline items based on status
+          if (sampleTimeline.submitted) {
+            addTimelineItem('submitted', 'Application Submitted', sampleTimeline.submitted.date, sampleTimeline.submitted.description);
+          }
+          if (sampleTimeline.in_review) {
+            addTimelineItem('in_review', 'In Review', sampleTimeline.in_review.date, sampleTimeline.in_review.description);
+          }
+          if (sampleTimeline.approved) {
+            addTimelineItem('approved', 'Approved', sampleTimeline.approved.date, sampleTimeline.approved.description);
+          }
+          
+          // Show the status display
+          statusDisplay.classList.remove('hidden');
+        }, 1000);
+      });
+
+      // Update status badge
+      function updateStatusBadge(status) {
+        const statusConfig = statusColors[status] || statusColors.in_review;
+        statusBadge.className = `status-badge ${statusConfig.bg} ${statusConfig.text}`;
+        statusBadge.innerHTML = `<i class="fas ${statusConfig.icon} mr-2"></i><span>${status.replace('_', ' ').toUpperCase()}</span>`;
+      }
+
+      // Add timeline item
+      function addTimelineItem(status, title, date, description) {
+        const statusConfig = statusColors[status] || statusColors.in_review;
+        const item = document.createElement('div');
+        item.className = 'timeline-item relative pl-8';
+        item.innerHTML = `
+          <div class="absolute left-0 top-0 w-4 h-4 rounded-full ${statusConfig.bg} border-2 border-white z-10"></div>
+          <div class="text-sm font-medium text-gray-800">${title}</div>
+          <div class="text-xs text-gray-500 mt-1">${date}</div>
+          <p class="text-sm text-gray-600 mt-1">${description}</p>
+        `;
+        timelineItems.appendChild(item);
+      }
+    });
+  </script>
+</body>
+</html>
