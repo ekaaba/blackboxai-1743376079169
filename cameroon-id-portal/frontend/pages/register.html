@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Cameroon National ID Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .auth-container {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .password-strength {
+      height: 4px;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-lg auth-container">
+    <div class="text-center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg" alt="Cameroon Flag" class="mx-auto h-16 w-auto">
+      <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+        Create a new account
+      </h2>
+      <p class="mt-2 text-sm text-gray-600">
+        Or <a href="login.html" class="font-medium text-blue-600 hover:text-blue-500">sign in to your existing account</a>
+      </p>
+    </div>
+
+    <form class="mt-8 space-y-6" id="register-form">
+      <div class="rounded-md shadow-sm space-y-4">
+        <div>
+          <label for="full-name" class="sr-only">Full Name</label>
+          <input id="full-name" name="full_name" type="text" autocomplete="name" required
+            class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Full Name">
+        </div>
+        <div>
+          <label for="email" class="sr-only">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" required
+            class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Email address">
+        </div>
+        <div>
+          <label for="phone" class="sr-only">Phone Number</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required
+            class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Phone Number">
+        </div>
+        <div>
+          <label for="password" class="sr-only">Password</label>
+          <input id="password" name="password" type="password" autocomplete="new-password" required
+            class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Password">
+          <div class="mt-1 flex space-x-1">
+            <div id="strength-1" class="password-strength w-full bg-gray-200 rounded-sm"></div>
+            <div id="strength-2" class="password-strength w-full bg-gray-200 rounded-sm"></div>
+            <div id="strength-3" class="password-strength w-full bg-gray-200 rounded-sm"></div>
+            <div id="strength-4" class="password-strength w-full bg-gray-200 rounded-sm"></div>
+          </div>
+          <p class="mt-1 text-xs text-gray-500">Password must be at least 8 characters long</p>
+        </div>
+        <div>
+          <label for="confirm-password" class="sr-only">Confirm Password</label>
+          <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" required
+            class="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            placeholder="Confirm Password">
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <input id="terms" name="terms" type="checkbox" required
+          class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+        <label for="terms" class="ml-2 block text-sm text-gray-900">
+          I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">Terms of Service</a> and <a href="#" class="text-blue-600 hover:text-blue-500">Privacy Policy</a>
+        </label>
+      </div>
+
+      <div>
+        <button type="submit"
+          class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <i class="fas fa-user-plus text-blue-300 group-hover:text-blue-200"></i>
+          </span>
+          Register
+        </button>
+      </div>
+    </form>
+
+    <div class="relative">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gray-300"></div>
+      </div>
+      <div class="relative flex justify-center text-sm">
+        <span class="px-2 bg-white text-gray-500">
+          Or register with
+        </span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3">
+      <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+        <i class="fab fa-google text-red-500 mr-2"></i> Google
+      </a>
+      <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+        <i class="fab fa-facebook-f text-blue-600 mr-2"></i> Facebook
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const registerForm = document.getElementById('register-form');
+      const passwordInput = document.getElementById('password');
+      const strengthBars = [
+        document.getElementById('strength-1'),
+        document.getElementById('strength-2'),
+        document.getElementById('strength-3'),
+        document.getElementById('strength-4')
+      ];
+
+      // Password strength indicator
+      passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        let strength = 0;
+        
+        // Length check
+        if (password.length >= 8) strength++;
+        if (password.length >= 12) strength++;
+        
+        // Complexity checks
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        // Cap at 4
+        strength = Math.min(strength, 4);
+        
+        // Update strength bars
+        strengthBars.forEach((bar, index) => {
+          if (index < strength) {
+            if (strength <= 2) {
+              bar.style.backgroundColor = '#ef4444'; // red
+            } else if (strength === 3) {
+              bar.style.backgroundColor = '#f59e0b'; // yellow
+            } else {
+              bar.style.backgroundColor = '#10b981'; // green
+            }
+          } else {
+            bar.style.backgroundColor = '#e5e7eb'; // gray
+          }
+        });
+      });
+
+      // Form submission
+      registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+        
+        if (password !== confirmPassword) {
+          alert('Passwords do not match');
+          return;
+        }
+        
+        // In a real implementation, this would call the registration API
+        console.log('Registration attempt with:', {
+          name: document.getElementById('full-name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          password: password
+        });
+        
+        // Simulate successful registration
+        setTimeout(() => {
+          alert('Registration successful! Please check your email to verify your account.');
+          window.location.href = 'login.html';
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
