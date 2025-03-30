@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cameroon National ID Card Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .language-toggle {
+      background-color: #0066CC;
+      color: white;
+    }
+    .language-toggle:hover {
+      background-color: #0055AA;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg" alt="Cameroon Flag" class="h-10 mr-3">
+        <h1 class="text-xl font-bold text-gray-800">Cameroon National ID Card Portal</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <button class="language-toggle px-3 py-1 rounded-md flex items-center">
+            <i class="fas fa-globe mr-2"></i>
+            English
+            <i class="fas fa-chevron-down ml-2"></i>
+          </button>
+        </div>
+        <a href="login.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-6">Apply for Your National ID Card</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Streamlined online application process for Cameroon national identification cards</p>
+      <div class="flex justify-center space-x-4">
+        <a href="apply.html" class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md font-semibold">Apply Now</a>
+        <a href="track.html" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-md font-semibold">Track Application</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-id-card text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">New ID Application</h3>
+          <p class="text-gray-600">Complete your national ID application online with our secure platform.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-search text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Application Tracking</h3>
+          <p class="text-gray-600">Check the status of your application in real-time with your reference number.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+          <div class="text-blue-600 mb-4">
+            <i class="fas fa-headset text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Support Services</h3>
+          <p class="text-gray-600">Get help with your application through our dedicated support channels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">ID Cameroon</h3>
+          <p class="text-gray-300">The official portal for Cameroon national identification card services.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="apply.html" class="text-gray-300 hover:text-white">Apply Now</a></li>
+            <li><a href="track.html" class="text-gray-300 hover:text-white">Track Application</a></li>
+            <li><a href="faq.html" class="text-gray-300 hover:text-white">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-gray-300"></i>
+              <span>id.cameroon.tracking@gmail.com</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-2 text-gray-300"></i>
+              <span>(+237) 652776172</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2023 Cameroon National ID Card Portal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple language toggle functionality
+    document.querySelector('.language-toggle').addEventListener('click', function() {
+      // In a real implementation, this would switch between English/French
+      alert('Language switching functionality will be implemented');
+    });
+  </script>
+</body>
+</html>
