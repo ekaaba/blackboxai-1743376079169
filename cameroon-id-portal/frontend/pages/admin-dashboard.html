@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Cameroon National ID Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .nav-link.active {
+      border-bottom: 2px solid #2563eb;
+      color: #2563eb;
+    }
+    .table-row:hover {
+      background-color: #f9fafb;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Admin Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg" alt="Cameroon Flag" class="h-10 mr-3">
+        <h1 class="text-xl font-bold text-gray-800">ID Cameroon Admin Portal</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <div class="relative">
+          <button class="bg-blue-600 text-white px-3 py-1 rounded-md flex items-center">
+            <i class="fas fa-globe mr-2"></i>
+            English
+          </button>
+        </div>
+        <div class="relative group">
+          <button class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+              <i class="fas fa-user text-blue-600"></i>
+            </div>
+            <span class="hidden md:inline text-gray-700">Admin</span>
+          </button>
+          <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Navigation -->
+  <nav class="bg-white border-b">
+    <div class="container mx-auto px-4">
+      <div class="flex space-x-8">
+        <a href="#applications" class="nav-link active py-4 px-1 border-b-2 font-medium text-sm">Applications</a>
+        <a href="#users" class="nav-link py-4 px-1 border-b-2 font-medium text-sm">User Management</a>
+        <a href="#reports" class="nav-link py-4 px-1 border-b-2 font-medium text-sm">Reports</a>
+        <a href="#settings" class="nav-link py-4 px-1 border-b-2 font-medium text-sm">Settings</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Admin Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Applications Section -->
+    <section id="applications" class="mb-12">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Application Management</h2>
+        <div class="flex space-x-3">
+          <div class="relative">
+            <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option>Filter by Status</option>
+              <option>Submitted</option>
+              <option>In Review</option>
+              <option>Approved</option>
+              <option>Rejected</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <i class="fas fa-chevron-down text-gray-400"></i>
+            </div>
+          </div>
+          <div class="relative">
+            <input type="text" placeholder="Search applications..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <i class="fas fa-search text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applications Table -->
+      <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reference</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Applicant</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <!-- Sample application row -->
+              <tr class="table-row">
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">ID-123-456789</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">John Doe</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-11-15</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span class="status-badge bg-yellow-100 text-yellow-800">
+                    <i class="fas fa-circle-notch fa-spin mr-2"></i>
+                    <span>IN REVIEW</span>
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <button class="text-blue-600 hover:text-blue-800 mr-3">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="text-green-600 hover:text-green-800 mr-3">
+                    <i class="fas fa-check"></i>
+                  </button>
+                  <button class="text-red-600 hover:text-red-800">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- More application rows would be here -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Footer -->
+        <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+          <div class="flex-1 flex justify-between sm:hidden">
+            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+              Previous
+            </a>
+            <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+              Next
+            </a>
+          </div>
+          <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div>
+              <p class="text-sm text-gray-700">
+                Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">24</span> results
+              </p>
+            </div>
+            <div>
+              <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                  <span class="sr-only">Previous</span>
+                  <i class="fas fa-chevron-left"></i>
+                </a>
+                <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  1
+                </a>
+                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  2
+                </a>
+                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  3
+                </a>
+                <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                  ...
+                </span>
+                <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  8
+                </a>
+                <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                  <span class="sr-only">Next</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Management Section -->
+    <section id="users" class="mb-12 hidden">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">User Management</h2>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm">
+          <i class="fas fa-plus mr-2"></i> Add New Admin
+        </button>
+      </div>
+
+      <!-- Users Table -->
+      <div class="bg-white shadow-sm rounded-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User ID</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Join Date</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <!-- Sample user row -->
+              <tr class="table-row">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">admin@idcameroon.cm</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Admin
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2023-10-01</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <button class="text-blue-600 hover:text-blue-800 mr-3">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="text-red-600 hover:text-red-800">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <!-- More user rows would be here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Admin Modal (hidden by default) -->
+    <div id="add-admin-modal" class="fixed inset-0 overflow-y-auto hidden z-50">
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+          <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">Add New Admin</h3>
+            <div class="space-y-4">
+              <div>
+                <label for="admin-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="admin-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              </div>
+              <div>
+                <label for="admin-password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="admin-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              </div>
+              <div>
+                <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" id="confirm-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+            <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+              Add Admin
+            </button>
+            <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Update active tab
+          navLinks.forEach(l => l.classList.remove('active', 'text-blue-600'));
+          this.classList.add('active', 'text-blue-600');
+          
+          // Show corresponding section
+          const target = this.getAttribute('href').substring(1);
+          sections.forEach(section => {
+            if (section.id === target) {
+              section.classList.remove('hidden');
+            } else {
+              section.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Application status actions
+      document.querySelectorAll('.table-row button').forEach(button => {
+        button.addEventListener('click', function() {
+          const row = this.closest('tr');
+          const ref = row.querySelector('td:nth-child(2)').textContent;
+          
+          if (this.innerHTML.includes('fa-eye')) {
+            alert(`View application ${ref}`);
+          } else if (this.innerHTML.includes('fa-check')) {
+            if (confirm(`Approve application ${ref}?`)) {
+              const statusBadge = row.querySelector('.status-badge');
+              statusBadge.className = 'status-badge bg-green-100 text-green-800';
+              statusBadge.innerHTML = '<i class="fas fa-check-circle mr-2"></i><span>APPROVED</span>';
+            }
+          } else if (this.innerHTML.includes('fa-times')) {
+            if (confirm(`Reject application ${ref}?`)) {
+              const statusBadge = row.querySelector('.status-badge');
+              statusBadge.className = 'status-badge bg-red-100 text-red-800';
+              statusBadge.innerHTML = '<i class="fas fa-times-circle mr-2"></i><span>REJECTED</span>';
+            }
+          }
+        });
+      });
+
+      // Add Admin button
+      const addAdminBtn = document.querySelector('#users button');
+      const addAdminModal = document.getElementById('add-admin-modal');
+      const closeModal = addAdminModal.querySelector('button:last-child');
+
+      if (addAdminBtn) {
+        addAdminBtn.addEventListener('click', () => {
+          addAdminModal.classList.remove('hidden');
+        });
+      }
+
+      closeModal.addEventListener('click', () => {
+        addAdminModal.classList.add('hidden');
+      });
+
+      // Bulk actions
+      const checkboxes = document.querySelectorAll('table input[type="checkbox"]');
+      const headerCheckbox = document.querySelector('thead input[type="checkbox"]');
+
+      headerCheckbox.addEventListener('change', function() {
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = this.checked;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
